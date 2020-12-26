@@ -1,3 +1,4 @@
+import 'package:expense_tracker/screens/all/all_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -95,6 +96,7 @@ class _MyAppState extends State<MyApp> {
         home: HomeScreen(),
         routes: {
           '/create-screen': (ctx) => CreateScreen(),
+          '/all-screen': (ctx) => AllScreen(),
         },
         debugShowCheckedModeBanner: false,
       ),

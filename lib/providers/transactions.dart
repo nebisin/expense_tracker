@@ -9,6 +9,10 @@ class Transactions with ChangeNotifier {
     return [..._items];
   }
 
+  List<Transaction> get latestItems {
+    return _items.take(3).toList();
+  }
+
   Future<void> fetchItems() async {
     await Hive.openBox<Transaction>(
       'txs',
@@ -20,26 +24,37 @@ class Transactions with ChangeNotifier {
     final itemList =
         Hive.box<Transaction>('txs').values.toList().cast<Transaction>();
 
-    _items = itemList;
+    _items = itemList.reversed.toList();
 
     notifyListeners();
   }
 
-  Future<void> add(Transaction item) async {
+  Future<void> addItem(Transaction item) async {
     final transactionBox = Hive.box<Transaction>('txs');
 
     await transactionBox.put(item.id, item);
 
-    _items.add(item);
+    _items.insert(0, item);
     notifyListeners();
   }
 
-  Future<void> remove(String id) async {
+  Future<void> removeItem(String id) async {
     final transactionBox = Hive.box<Transaction>('txs');
 
     await transactionBox.delete(id);
 
     _items.removeWhere((element) => element.id == id);
+    notifyListeners();
+  }
+
+  Future<void> updateItem(String id, Transaction item) async {
+    final transactionBox = Hive.box<Transaction>('txs');
+
+    await transactionBox.put(id, item);
+
+    final itemIndex = _items.indexWhere((element) => element.id == id);
+
+    _items[itemIndex] = item;
     notifyListeners();
   }
 

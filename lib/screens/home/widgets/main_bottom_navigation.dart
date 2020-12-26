@@ -19,8 +19,8 @@ class MainBottomNavigation extends StatelessWidget {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.favorite),
-          label: 'Favorites',
+          icon: Icon(Icons.stacked_line_chart),
+          label: 'Statistics',
         ),
       ],
     );

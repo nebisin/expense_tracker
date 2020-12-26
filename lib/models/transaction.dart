@@ -25,6 +25,8 @@ class Transaction extends HiveObject {
   final DateTime date;
   @HiveField(5)
   final String category;
+  @HiveField(6)
+  final bool isFavorite;
 
   Transaction({
     @required this.id,
@@ -33,5 +35,6 @@ class Transaction extends HiveObject {
     @required this.amount,
     @required this.date,
     this.category,
+    this.isFavorite = false,
   });
 }

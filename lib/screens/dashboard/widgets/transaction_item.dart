@@ -75,7 +75,34 @@ class TransactionItem extends StatelessWidget {
               color: Theme.of(context).errorColor,
               icon: Icon(Icons.delete),
               onPressed: () {
-                Provider.of<Transactions>(context, listen: false).remove(item.id);
+                Provider.of<Transactions>(context, listen: false)
+                    .removeItem(item.id);
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 20.0,
+              right: 10,
+              bottom: 20,
+            ),
+            child: IconButton(
+              color: Theme.of(context).accentColor,
+              icon: item.isFavorite == false
+                  ? Icon(Icons.favorite_border)
+                  : Icon(Icons.favorite),
+              onPressed: () {
+                final newItem = Transaction(
+                  id: item.id,
+                  type: item.type,
+                  title: item.title,
+                  amount: item.amount,
+                  date: item.date,
+                  category: item.category,
+                  isFavorite: !item.isFavorite,
+                );
+                Provider.of<Transactions>(context, listen: false)
+                    .updateItem(item.id, newItem);
               },
             ),
           )

@@ -43,7 +43,7 @@ class _CreateScreenState extends State<CreateScreen> {
       type: _type,
     );
 
-    await Provider.of<Transactions>(context, listen: false).add(newTransaction);
+    await Provider.of<Transactions>(context, listen: false).addItem(newTransaction);
     Navigator.of(context).pop();
   }
 

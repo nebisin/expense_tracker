@@ -6,27 +6,19 @@ import 'package:provider/provider.dart';
 class LatestTransactions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final items = Provider.of<Transactions>(context).items;
+    final items = Provider.of<Transactions>(context).latestItems;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          padding: EdgeInsets.only(left: 20, top: 20),
+          padding: EdgeInsets.only(left: 20, top: 30),
           child: Text(
             'Lastest Transactions',
             style: Theme.of(context).textTheme.headline5,
           ),
         ),
         TransactionList(items),
-        Padding(
-          padding: const EdgeInsets.only(left: 20, bottom: 20),
-          child: TextButton.icon(
-            onPressed: () {},
-            label: Text('Show More'),
-            icon: Icon(Icons.read_more),
-          ),
-        ),
       ],
     );
   }
