@@ -28,6 +28,12 @@ class _CreateScreenState extends State<CreateScreen> {
     });
   }
 
+  void _setDate(DateTime newDate) {
+    setState(() {
+      _selectedDate = newDate;
+    });
+  }
+
   void _saveTransaction() async {
     final isValid = _formKey.currentState.validate();
 
@@ -43,7 +49,8 @@ class _CreateScreenState extends State<CreateScreen> {
       type: _type,
     );
 
-    await Provider.of<Transactions>(context, listen: false).addItem(newTransaction);
+    await Provider.of<Transactions>(context, listen: false)
+        .addItem(newTransaction);
     Navigator.of(context).pop();
   }
 
@@ -58,7 +65,7 @@ class _CreateScreenState extends State<CreateScreen> {
         child: Column(
           children: [
             SelectButtons(_type, _setType),
-            DateSelector(selectedDate: _selectedDate),
+            DateSelector(_selectedDate, _setDate),
             SizedBox(height: 10),
             CreateForm(
               formKey: _formKey,
@@ -86,6 +93,7 @@ class _CreateScreenState extends State<CreateScreen> {
                 }).toList(),
               ),
             ),
+
             SizedBox(height: 20),
             Container(
               alignment: Alignment.centerRight,
@@ -101,3 +109,13 @@ class _CreateScreenState extends State<CreateScreen> {
     );
   }
 }
+
+/*
+            SizedBox(height: 20),
+            Preview(
+              _type,
+              double.tryParse(_amountController.text),
+              _titleController.text,
+              _selectedDate,
+            ),
+*/

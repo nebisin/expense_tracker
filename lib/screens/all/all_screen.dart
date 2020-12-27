@@ -7,7 +7,7 @@ import 'widgets/transaction_item.dart';
 class AllScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final allItems = Provider.of<Transactions>(context).items;
+    final allItems = Provider.of<Transactions>(context).sortedByDate;
 
     return Scaffold(
       appBar: AppBar(
@@ -15,7 +15,10 @@ class AllScreen extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: allItems.length,
-        itemBuilder: (ctx, index) => TransactionItem(allItems[index]),
+        itemBuilder: (ctx, index) => TransactionItem(
+          allItems[index],
+          index == 0 ? null : allItems[index - 1].date,
+        ),
       ),
     );
   }

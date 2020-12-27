@@ -4,8 +4,9 @@ import 'package:intl/intl.dart';
 
 class TransactionItem extends StatelessWidget {
   final Transaction item;
+  final DateTime dateBefore;
 
-  TransactionItem(this.item);
+  TransactionItem(this.item, this.dateBefore);
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,27 @@ class TransactionItem extends StatelessWidget {
 
     return SingleChildScrollView(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          if (dateBefore == null || dateBefore.day != item.date.day)
+            Opacity(
+              opacity: 0.5,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 20,
+                  right: 20,
+                  top: 20,
+                ),
+                child: Text(
+                  DateFormat('MMMM d').format(item.date),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+            ),
           Container(
             margin: EdgeInsets.only(
               left: item.type == ActionType.expense ? 50 : 0,
@@ -66,6 +87,13 @@ class TransactionItem extends StatelessWidget {
                     ? Radius.circular(20)
                     : Radius.zero,
               ),
+              boxShadow: [
+                BoxShadow(
+                  blurRadius: 10,
+                  spreadRadius: 5,
+                  color: Colors.grey[300],
+                )
+              ],
               color: Colors.white,
             ),
             child: Row(

@@ -36,7 +36,7 @@ class TransactionItem extends StatelessWidget {
               bottom: 20,
             ),
             child: Text(
-              '\$${item.amount}',
+              '\$${item.amount.toInt()}',
               style: TextStyle(
                 color: item.type == ActionType.expense
                     ? Theme.of(context).errorColor

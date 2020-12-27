@@ -26,6 +26,7 @@ class CreateForm extends StatelessWidget {
             keyboardType: TextInputType.number,
             decoration: InputDecoration(
               labelText: 'Amount',
+              prefixText: '\$',
             ),
             validator: (value) {
               if (value.isEmpty) {
@@ -42,7 +43,7 @@ class CreateForm extends StatelessWidget {
           TextFormField(
             controller: _titleController,
             decoration: InputDecoration(
-              labelText: 'Title (optinal)',
+              labelText: 'Description (optinal)',
             ),
           ),
         ],

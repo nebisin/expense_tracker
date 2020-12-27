@@ -13,6 +13,22 @@ class Transactions with ChangeNotifier {
     return _items.take(3).toList();
   }
 
+  List<Transaction> get biggestItems {
+    List<Transaction> copyItems = [..._items];
+
+    copyItems.sort((a, b) => b.amount.compareTo(a.amount));
+
+    return copyItems.take(3).toList();
+  }
+
+  List<Transaction> get sortedByDate {
+    List<Transaction> copyItems = [..._items];
+
+    copyItems.sort((a, b) => b.date.compareTo(a.date));
+
+    return copyItems;
+  }
+
   Future<void> fetchItems() async {
     await Hive.openBox<Transaction>(
       'txs',
