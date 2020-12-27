@@ -1,3 +1,4 @@
+import 'chart.dart';
 import 'transaction_list.dart';
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/providers/transactions.dart';
@@ -11,11 +12,20 @@ class LatestTransactions extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
-          padding: EdgeInsets.only(left: 20, top: 30),
-          child: Text(
-            'Lastest Transactions',
-            style: Theme.of(context).textTheme.headline5,
+        SizedBox(height: 20),
+        Chart(items),
+        Opacity(
+          opacity: 0.5,
+          child: Container(
+            padding: EdgeInsets.only(left: 20, top: 30),
+            child: Text(
+              'Latest Transactions',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 30,
+                color: Colors.grey,
+              ),
+            ),
           ),
         ),
         TransactionList(items),

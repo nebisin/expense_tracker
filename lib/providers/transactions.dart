@@ -10,7 +10,13 @@ class Transactions with ChangeNotifier {
   }
 
   List<Transaction> get latestItems {
-    return _items.take(3).toList();
+    return _items.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
   }
 
   List<Transaction> get biggestItems {

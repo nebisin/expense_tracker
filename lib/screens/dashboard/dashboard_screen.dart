@@ -18,7 +18,7 @@ class DashboardScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamed('/all-screen');
               },
-              label: Text('Show All Items'),
+              label: Text('Show All Transactions'),
               icon: Icon(Icons.read_more),
             ),
           ),
