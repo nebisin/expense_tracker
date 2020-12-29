@@ -1,4 +1,5 @@
 import 'package:expense_tracker/providers/transactions.dart';
+import 'package:expense_tracker/screens/all/widgets/all_time_stats.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,12 +15,16 @@ class AllScreen extends StatelessWidget {
         title: Text('All Transactions'),
       ),
       body: ListView.builder(
-        itemCount: allItems.length,
-        itemBuilder: (ctx, index) => TransactionItem(
-          allItems[index],
-          index == 0 ? null : allItems[index - 1].date,
-        ),
-      ),
+          itemCount: allItems.length + 1,
+          itemBuilder: (ctx, index) {
+            if(index == 0)
+              return AllTimeStats();
+            else
+              return TransactionItem(
+                allItems[index -1],
+                index == 1 ? null : allItems[index - 2].date,
+              );
+          }),
     );
   }
 }

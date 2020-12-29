@@ -8,12 +8,14 @@ class ChartBar extends StatelessWidget {
   ChartBar(this.expense, this.income, this.total);
 
   double incomeRate() {
+    if (total == 0) return 0;
     final rate = ((120 * income) / total);
 
     return rate;
   }
 
   double expenseRate() {
+    if (total == 0) return 0;
     final rate = ((120 * expense) / total);
 
     return rate;
@@ -23,23 +25,23 @@ class ChartBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 120,
-      width: 20,
+      width: 15,
       margin: EdgeInsets.all(5),
       decoration: BoxDecoration(color: Colors.grey[350]),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Container(
-              width: 20,
+              width: 15,
               height: incomeRate(),
               decoration: BoxDecoration(
                 color: Colors.blueGrey,
               )),
           Container(
-              width: 20,
+              width: 15,
               height: expenseRate(),
               decoration: BoxDecoration(
-                color: Colors.red[400],
+                color: Colors.red[300],
               )),
         ],
       ),

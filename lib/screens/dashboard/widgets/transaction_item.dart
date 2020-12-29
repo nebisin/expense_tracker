@@ -13,7 +13,7 @@ class TransactionItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
-      margin: EdgeInsets.only(top: 20, left: 20, bottom: 10, right: 20),
+      margin: EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,

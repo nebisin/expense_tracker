@@ -60,50 +60,52 @@ class _CreateScreenState extends State<CreateScreen> {
       appBar: AppBar(
         title: Text(_type == ActionType.expense ? 'New Expense' : 'New Income'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            SelectButtons(_type, _setType),
-            DateSelector(_selectedDate, _setDate),
-            SizedBox(height: 10),
-            CreateForm(
-              formKey: _formKey,
-              amountController: _amountController,
-              titleController: _titleController,
-            ),
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 20),
-              child: DropdownButton(
-                isExpanded: true,
-                value: _tag,
-                onChanged: (newValue) {
-                  setState(() {
-                    _tag = newValue;
-                  });
-                },
-                hint: Text('Choose a category (optinal)'),
-                items: <String>['One', 'Two', 'Free', 'Four']
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
+      body: SingleChildScrollView(
+              child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: Column(
+            children: [
+              SelectButtons(_type, _setType),
+              DateSelector(_selectedDate, _setDate),
+              SizedBox(height: 10),
+              CreateForm(
+                formKey: _formKey,
+                amountController: _amountController,
+                titleController: _titleController,
               ),
-            ),
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 20),
+                child: DropdownButton(
+                  isExpanded: true,
+                  value: _tag,
+                  onChanged: (newValue) {
+                    setState(() {
+                      _tag = newValue;
+                    });
+                  },
+                  hint: Text('Choose a category (optinal)'),
+                  items: <String>['One', 'Two', 'Free', 'Four']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                ),
+              ),
 
-            SizedBox(height: 20),
-            Container(
-              alignment: Alignment.centerRight,
-              child: RaisedButton.icon(
-                onPressed: _saveTransaction,
-                icon: Icon(Icons.save),
-                label: Text('Save'),
+              SizedBox(height: 20),
+              Container(
+                alignment: Alignment.centerRight,
+                child: RaisedButton.icon(
+                  onPressed: _saveTransaction,
+                  icon: Icon(Icons.save),
+                  label: Text('Save'),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

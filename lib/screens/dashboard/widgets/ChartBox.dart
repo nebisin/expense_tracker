@@ -15,22 +15,28 @@ class ChartBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          '\$${result.abs().floor()}',
-          style: TextStyle(
-            color: result == 0
-                ? Colors.grey
-                : result.isNegative
-                    ? Colors.red
-                    : Colors.green,
+    return Flexible(
+      fit: FlexFit.tight,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          FittedBox(
+            child: Text(
+              '\$${result.abs().floor()}',
+              style: TextStyle(
+                color: result == 0
+                    ? Colors.grey
+                    : result.isNegative
+                        ? Colors.red
+                        : Colors.green,
+                  fontSize: 14,
+              ),
+            ),
           ),
-        ),
-        ChartBar(expense, income, total),
-        Text(day),
-      ],
+          ChartBar(expense, income, total),
+          Text(day),
+        ],
+      ),
     );
   }
 }

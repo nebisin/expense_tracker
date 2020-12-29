@@ -35,6 +35,10 @@ class Transactions with ChangeNotifier {
     return copyItems;
   }
 
+  List<Transaction> get getFavorites {
+    return _items.where((element) => element.isFavorite == true).toList();
+  }
+
   Future<void> fetchItems() async {
     await Hive.openBox<Transaction>(
       'txs',
