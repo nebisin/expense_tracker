@@ -53,22 +53,15 @@ class TransactionItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (dateBefore == null || dateBefore.day != item.date.day)
-            Opacity(
-              opacity: 0.5,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                  top: 20,
-                ),
-                child: Text(
-                  DateFormat('MMMM d').format(item.date),
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30,
-                    color: Colors.grey,
-                  ),
-                ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 20,
+                right: 20,
+                top: 20,
+              ),
+              child: Text(
+                DateFormat('MMMM d').format(item.date),
+                style: Theme.of(context).textTheme.headline6,
               ),
             ),
           Container(

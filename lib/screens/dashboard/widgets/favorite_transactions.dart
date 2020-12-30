@@ -12,18 +12,11 @@ class FavoriteTransactions extends StatelessWidget {
         ? Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Opacity(
-                opacity: 0.5,
-                child: Container(
-                  padding: EdgeInsets.only(left: 20, top: 20),
-                  child: Text(
-                    'Favorite Transactions',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                      color: Colors.grey,
-                    ),
-                  ),
+              Container(
+                padding: EdgeInsets.only(left: 20, top: 20),
+                child: Text(
+                  'Favorite Transactions',
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               ),
               TransactionList(items),

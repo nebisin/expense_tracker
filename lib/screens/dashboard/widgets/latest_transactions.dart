@@ -64,18 +64,11 @@ class LatestTransactions extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Opacity(
-                opacity: 0.5,
-                child: Container(
-                  padding: EdgeInsets.only(left: 20, top: 30),
-                  child: Text(
-                    'Latest Transactions',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 30,
-                      color: Colors.grey,
-                    ),
-                  ),
+              Container(
+                padding: EdgeInsets.only(left: 20, top: 30),
+                child: Text(
+                  'Latest Transactions',
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               ),
               TransactionList(items),

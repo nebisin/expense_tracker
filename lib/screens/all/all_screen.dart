@@ -18,7 +18,7 @@ class AllScreen extends StatelessWidget {
           itemCount: allItems.length + 1,
           itemBuilder: (ctx, index) {
             if(index == 0)
-              return AllTimeStats();
+              return AllTimeStats(allItems);
             else
               return TransactionItem(
                 allItems[index -1],
