@@ -74,6 +74,7 @@ class _CreateScreenState extends State<CreateScreen> {
                 titleController: _titleController,
               ),
               SizedBox(height: 20),
+              /*
               Padding(
                 padding: const EdgeInsets.only(left: 10, right: 20),
                 child: DropdownButton(
@@ -94,7 +95,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   }).toList(),
                 ),
               ),
-
+            */
               SizedBox(height: 20),
               Container(
                 alignment: Alignment.centerRight,

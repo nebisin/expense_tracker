@@ -12,7 +12,7 @@ class DashboardScreen extends StatelessWidget {
         children: [
           LatestTransactions(),
           FavoriteTransactions(),
-          SizedBox(height: 30),
+          SizedBox(height: 70),
         ],
       ),
     );

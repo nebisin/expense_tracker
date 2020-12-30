@@ -11,23 +11,28 @@ class TransactionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var rowChildren = <Widget>[
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            item.title.isNotEmpty
-                ? item.title
-                : item.type == ActionType.expense
-                    ? 'Expense'
-                    : 'Income',
-            style: Theme.of(context).textTheme.headline5,
-          ),
-          Text(
-            DateFormat('MMMM d').format(item.date),
-            style: Theme.of(context).textTheme.subtitle2,
-          ),
-        ],
+      Flexible(
+        flex: 1,
+        child: Column(
+          crossAxisAlignment: item.type == ActionType.expense ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              item.title.isNotEmpty
+                  ? item.title
+                  : item.type == ActionType.expense
+                      ? 'Expense'
+                      : 'Income',
+              style: Theme.of(context).textTheme.headline5,
+              overflow: TextOverflow.fade,
+              softWrap: false,
+            ),
+            Text(
+              DateFormat('MMMM d').format(item.date),
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
+          ],
+        ),
       ),
       Container(
         padding: EdgeInsets.only(

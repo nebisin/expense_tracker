@@ -15,16 +15,17 @@ class AllScreen extends StatelessWidget {
         title: Text('All Transactions'),
       ),
       body: ListView.builder(
-          itemCount: allItems.length + 1,
-          itemBuilder: (ctx, index) {
-            if(index == 0)
-              return AllTimeStats(allItems);
-            else
-              return TransactionItem(
-                allItems[index -1],
-                index == 1 ? null : allItems[index - 2].date,
-              );
-          }),
+        itemCount: allItems.length + 1,
+        itemBuilder: (ctx, index) {
+          if (index == 0)
+            return AllTimeStats(allItems);
+          else
+            return TransactionItem(
+              allItems[index - 1],
+              index == 1 ? null : allItems[index - 2].date,
+            );
+        },
+      ),
     );
   }
 }

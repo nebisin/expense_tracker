@@ -30,7 +30,7 @@ class AllTimeStats extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       padding: EdgeInsets.symmetric(vertical: 20),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.grey[100],
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
@@ -47,8 +47,10 @@ class AllTimeStats extends StatelessWidget {
             padding: EdgeInsets.only(left: 20, bottom: 10),
             child: Text(
               'Total Transaction',
-              style:
-                  Theme.of(context).textTheme.headline6.copyWith(fontSize: 16),
+              style: Theme.of(context).textTheme.headline6.copyWith(
+                    fontSize: 16,
+                    color: Colors.black54,
+                  ),
             ),
           ),
           Row(
@@ -64,7 +66,7 @@ class AllTimeStats extends StatelessWidget {
                     BoxShadow(
                       blurRadius: 2,
                       spreadRadius: 4,
-                      color: Colors.grey[100],
+                      color: Colors.grey[200],
                     )
                   ],
                 ),
@@ -99,7 +101,7 @@ class AllTimeStats extends StatelessWidget {
                     BoxShadow(
                       blurRadius: 2,
                       spreadRadius: 4,
-                      color: Colors.grey[100],
+                      color: Colors.grey[200],
                     )
                   ],
                   borderRadius: BorderRadius.circular(15),
