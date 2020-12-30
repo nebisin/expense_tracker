@@ -1,3 +1,4 @@
+import 'package:expense_tracker/helpers/color_helper.dart';
 import 'package:expense_tracker/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -74,6 +75,7 @@ class TransactionItem extends StatelessWidget {
               left: item.type == ActionType.expense ? 50 : 0,
               right: item.type == ActionType.income ? 50 : 0,
               top: 20,
+              bottom: 20,
             ),
             padding: EdgeInsets.all(20),
             decoration: BoxDecoration(
@@ -86,11 +88,7 @@ class TransactionItem extends StatelessWidget {
                     : Radius.zero,
               ),
               boxShadow: [
-                BoxShadow(
-                  blurRadius: 10,
-                  spreadRadius: 5,
-                  color: Colors.grey[300],
-                )
+                UIColorHelper.defaultShadow,
               ],
               color: Colors.white,
             ),

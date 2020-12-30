@@ -9,4 +9,10 @@ class UIColorHelper {
   static const Color DARK_TEXT_COLOR = Color.fromRGBO(25, 25, 25, 1);
   static const Color LIGHT_TEXT_COLOR = Color.fromRGBO(25, 25, 25, 0.2);
   static const Color SECONDARY_TEXT_COLOR = Color.fromRGBO(65, 71, 82, 1);
+
+  static const defaultShadow = BoxShadow(
+    blurRadius: 27,
+    offset: Offset(0, 15),
+    color: Colors.black12,
+  );
 }

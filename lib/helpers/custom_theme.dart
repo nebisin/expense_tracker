@@ -10,7 +10,7 @@ final ThemeData customTheme = ThemeData(
     foregroundColor: Colors.white,
   ),
   scaffoldBackgroundColor: UIColorHelper.BACKGROUND_COLOR,
-  inputDecorationTheme: defaultInput(),
+  inputDecorationTheme: inputDecoration(),
   buttonTheme: defaultButton(),
   textTheme: TextTheme(
     headline1: TextStyle(
@@ -58,7 +58,7 @@ ButtonThemeData defaultButton() {
   );
 }
 
-InputDecorationTheme defaultInput() {
+InputDecorationTheme inputDecoration() {
   return InputDecorationTheme(
     border: const OutlineInputBorder(),
     enabledBorder: const OutlineInputBorder(

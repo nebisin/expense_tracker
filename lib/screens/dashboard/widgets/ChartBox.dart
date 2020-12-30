@@ -29,12 +29,17 @@ class ChartBox extends StatelessWidget {
                     : result.isNegative
                         ? Colors.red
                         : Colors.green,
-                  fontSize: 14,
+                fontSize: 14,
               ),
             ),
           ),
           ChartBar(expense, income, total),
-          Text(day),
+          Text(
+            day,
+            style: TextStyle(
+              fontSize: 14,
+            ),
+          ),
         ],
       ),
     );

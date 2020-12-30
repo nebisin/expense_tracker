@@ -1,3 +1,4 @@
+import 'package:expense_tracker/helpers/color_helper.dart';
 import 'package:expense_tracker/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -68,15 +69,12 @@ class Chart extends StatelessWidget {
     return Container(
       height: 200,
       margin: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
-          BoxShadow(
-            blurRadius: 10,
-            spreadRadius: 5,
-            color: Colors.grey[300],
-          )
+          UIColorHelper.defaultShadow,
         ],
       ),
       child: Row(

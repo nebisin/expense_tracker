@@ -1,3 +1,4 @@
+import 'package:expense_tracker/helpers/color_helper.dart';
 import 'package:expense_tracker/models/transaction.dart';
 import 'package:expense_tracker/providers/transactions.dart';
 import 'package:flutter/material.dart';
@@ -13,16 +14,12 @@ class TransactionItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
-      margin: EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 20),
+      margin: EdgeInsets.only(top: 10, left: 20, bottom: 40, right: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,
         boxShadow: [
-          BoxShadow(
-            blurRadius: 10,
-            spreadRadius: 5,
-            color: Colors.grey[300],
-          )
+          UIColorHelper.defaultShadow,
         ],
       ),
       child: Row(

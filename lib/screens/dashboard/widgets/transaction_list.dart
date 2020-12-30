@@ -10,7 +10,7 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 130,
+      height: 160,
       margin: EdgeInsets.only(top: 10),
       child: ListView.builder(
         itemBuilder: (ctx, index) => TransactionItem(items[index]),

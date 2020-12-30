@@ -20,7 +20,7 @@ class _CreateScreenState extends State<CreateScreen> {
 
   var _selectedDate = DateTime.now();
   var _type = ActionType.expense;
-  String _tag;
+  // String _tag;
 
   void _setType(ActionType newType) {
     setState(() {
@@ -73,8 +73,8 @@ class _CreateScreenState extends State<CreateScreen> {
                 amountController: _amountController,
                 titleController: _titleController,
               ),
-              SizedBox(height: 20),
               /*
+              SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.only(left: 10, right: 20),
                 child: DropdownButton(
@@ -95,7 +95,7 @@ class _CreateScreenState extends State<CreateScreen> {
                   }).toList(),
                 ),
               ),
-            */
+              */
               SizedBox(height: 20),
               Container(
                 alignment: Alignment.centerRight,

@@ -1,3 +1,4 @@
+import 'package:expense_tracker/helpers/color_helper.dart';
 import 'package:expense_tracker/models/transaction.dart';
 import 'package:flutter/material.dart';
 
@@ -33,11 +34,7 @@ class AllTimeStats extends StatelessWidget {
         color: Colors.grey[100],
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
-          BoxShadow(
-            blurRadius: 10,
-            spreadRadius: 5,
-            color: Colors.grey[300],
-          )
+          UIColorHelper.defaultShadow,
         ],
       ),
       child: Column(
@@ -63,11 +60,7 @@ class AllTimeStats extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(15),
                   boxShadow: [
-                    BoxShadow(
-                      blurRadius: 2,
-                      spreadRadius: 4,
-                      color: Colors.grey[200],
-                    )
+                    UIColorHelper.defaultShadow,
                   ],
                 ),
                 child: Column(
@@ -98,11 +91,7 @@ class AllTimeStats extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [
-                    BoxShadow(
-                      blurRadius: 2,
-                      spreadRadius: 4,
-                      color: Colors.grey[200],
-                    )
+                    UIColorHelper.defaultShadow,
                   ],
                   borderRadius: BorderRadius.circular(15),
                 ),
