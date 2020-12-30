@@ -38,6 +38,14 @@ dev_dependencies:
     sdk: flutter
   hive_generator: ^0.8.2
   build_runner: ^1.10.11
+  flutter_launcher_icons: ^0.8.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "dev_assets/tracker.png"
+  adaptive_icon_background: "#85BB65"
+  adaptive_icon_foreground: "dev_assets/tracker-adaptive.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

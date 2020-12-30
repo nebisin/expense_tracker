@@ -13,7 +13,9 @@ class LatestTransactions extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 20),
-        Chart(items),
+        Consumer<Transactions>(
+          builder: (ctx, items, _) => Chart(items.weeklyItems),
+        ),
         if (items.length == 0)
           InkWell(
             onTap: () {

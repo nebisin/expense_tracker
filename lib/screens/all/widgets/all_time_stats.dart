@@ -86,7 +86,7 @@ class AllTimeStats extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
-                        color: Colors.red,
+                        color: Theme.of(context).accentColor,
                       ),
                     ),
                   ],
@@ -122,7 +122,7 @@ class AllTimeStats extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
-                        color: Colors.green,
+                        color: Theme.of(context).errorColor
                       ),
                     ),
                   ],

@@ -9,7 +9,7 @@ class Transactions with ChangeNotifier {
     return [..._items];
   }
 
-  List<Transaction> get latestItems {
+  List<Transaction> get weeklyItems {
     return _items.where((tx) {
       return tx.date.isAfter(
         DateTime.now().subtract(
@@ -17,6 +17,10 @@ class Transactions with ChangeNotifier {
         ),
       );
     }).toList();
+  }
+
+  List<Transaction> get latestItems {
+    return _items.take(4).toList();
   }
 
   List<Transaction> get biggestItems {

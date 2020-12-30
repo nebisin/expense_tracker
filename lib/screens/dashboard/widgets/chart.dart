@@ -9,8 +9,6 @@ class Chart extends StatelessWidget {
 
   Chart(this.recentTransactions);
 
-
-
   List<Map<String, dynamic>> get groupedTransactionValues {
     return List.generate(7, (index) {
       final weekDay = DateTime.now().subtract(
@@ -44,7 +42,7 @@ class Chart extends StatelessWidget {
     }).reversed.toList();
   }
 
-    double get totalAmount {
+  double get totalAmount {
     return recentTransactions.fold(0.0, (previousValue, element) {
       return previousValue + element.amount;
     });
