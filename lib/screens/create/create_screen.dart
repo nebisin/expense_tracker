@@ -1,3 +1,4 @@
+import 'package:expense_tracker/services/admob_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -55,13 +56,25 @@ class _CreateScreenState extends State<CreateScreen> {
   }
 
   @override
+  void initState() {
+    AdmobService().showBannerAd();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    AdmobService().hideBannerAd();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(_type == ActionType.expense ? 'New Expense' : 'New Income'),
       ),
       body: SingleChildScrollView(
-              child: Padding(
+        child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
             children: [

@@ -41,7 +41,7 @@ class CurrentMonth extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      'You don\'t have any transaction yet. Let\'s add some!',
+                      'You don\'t have any transaction in this month. Let\'s add some!',
                       textAlign: TextAlign.left,
                       style: TextStyle(
                         color: Colors.white,

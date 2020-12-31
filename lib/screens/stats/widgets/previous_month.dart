@@ -6,10 +6,16 @@ import 'package:provider/provider.dart';
 import 'stat_card.dart';
 
 class PreviousMonth extends StatelessWidget {
+  int get previousMonth {
+    if (DateTime.now().month == 1) {
+      return 12;
+    }
+    return DateTime.now().month - 1;
+  }
+
   @override
   Widget build(BuildContext context) {
-    final allItems = Provider.of<Transactions>(context)
-        .monthlyItem(DateTime.now().month - 1);
+    final allItems = Provider.of<Transactions>(context).monthlyItem(previousMonth);
 
     return allItems.length != 0
         ? StatCard('Previous Month', allItems)

@@ -42,6 +42,8 @@ class CreateForm extends StatelessWidget {
           SizedBox(height: 20),
           TextFormField(
             controller: _titleController,
+            maxLength: 20,
+            maxLengthEnforced: true,
             decoration: InputDecoration(
               labelText: 'Description (optinal)',
             ),
