@@ -6,12 +6,38 @@ import 'package:provider/provider.dart';
 
 import 'widgets/main_bottom_navigation.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: Provider.of<Transactions>(context, listen: false).fetchItems(),
+      builder: (ctx, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(),
+            ),
+          );
+        }
+        if (snapshot.hasError) {
+          return Scaffold(
+            body: Center(
+              child: Text('Something went wrong!'),
+            ),
+          );
+        }
+        return HomeBody();
+      },
+    );
+  }
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class HomeBody extends StatefulWidget {
+  @override
+  _HomeBodyState createState() => _HomeBodyState();
+}
+
+class _HomeBodyState extends State<HomeBody> {
   int page = 0;
   void setPage(index) {
     setState(() {
@@ -23,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Expense Tracker'),
+        title: Text('Expense Recorder'),
         actions: [
           IconButton(
             icon: Icon(Icons.add),
@@ -33,28 +59,9 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ],
       ),
-      body: FutureBuilder(
-        future: Provider.of<Transactions>(context, listen: false).fetchItems(),
-        builder: (ctx, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Scaffold(
-              body: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          }
-          if (snapshot.hasError) {
-            return Scaffold(
-              body: Center(
-                child: Text('Something went wrong!'),
-              ),
-            );
-          }
-          return AnimatedSwitcher(
-            duration: Duration(milliseconds: 300),
-            child: page == 0 ? DashboardScreen() : StatsScreen(),
-          );
-        },
+      body: AnimatedSwitcher(
+        duration: Duration(milliseconds: 300),
+        child: page == 0 ? DashboardScreen() : StatsScreen(),
       ),
       bottomNavigationBar: MainBottomNavigation(page, setPage),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

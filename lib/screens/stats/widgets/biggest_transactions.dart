@@ -28,7 +28,7 @@ class BiggestTransactions extends StatelessWidget {
         : Container(
             width: double.infinity,
             padding: EdgeInsets.all(20),
-            margin: EdgeInsets.only(top: 10, left: 20, bottom: 10, right: 20),
+            margin: EdgeInsets.only(top: 30, left: 20, bottom: 10, right: 20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: Colors.indigo[400],
