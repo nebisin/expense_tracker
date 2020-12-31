@@ -1,25 +1,18 @@
 import 'package:expense_tracker/helpers/color_helper.dart';
-
-import 'chart.dart';
-import 'transaction_list.dart';
-import 'package:flutter/material.dart';
 import 'package:expense_tracker/providers/transactions.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class LatestTransactions extends StatelessWidget {
+import 'stat_card.dart';
+
+class CurrentMonth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final items = Provider.of<Transactions>(context).latestItems;
+    final allItems =
+        Provider.of<Transactions>(context).monthlyItem(DateTime.now().month);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: 20),
-        Consumer<Transactions>(
-          builder: (ctx, items, _) => Chart(items.weeklyItems),
-        ),
-        if (items.length == 0)
-          InkWell(
+    return allItems.length == 0
+        ? InkWell(
             onTap: () {
               Navigator.of(context).pushNamed('/create-screen');
             },
@@ -60,31 +53,6 @@ class LatestTransactions extends StatelessWidget {
               ),
             ),
           )
-        else
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: EdgeInsets.only(left: 20, top: 30),
-                child: Text(
-                  'Latest Transactions',
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-              ),
-              TransactionList(items),
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: TextButton.icon(
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/all-screen');
-                  },
-                  label: Text('Show All Transactions'),
-                  icon: Icon(Icons.read_more),
-                ),
-              ),
-            ],
-          ),
-      ],
-    );
+        : StatCard('Current Month', allItems);
   }
 }

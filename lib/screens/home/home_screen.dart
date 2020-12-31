@@ -1,5 +1,6 @@
 import 'package:expense_tracker/providers/transactions.dart';
 import 'package:expense_tracker/screens/dashboard/dashboard_screen.dart';
+import 'package:expense_tracker/screens/stats/stats_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -51,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
           }
           return AnimatedSwitcher(
             duration: Duration(milliseconds: 300),
-            child: DashboardScreen(),
+            child: page == 0 ? DashboardScreen() : StatsScreen(),
           );
         },
       ),

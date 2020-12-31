@@ -1,29 +1,18 @@
 import 'package:expense_tracker/helpers/color_helper.dart';
-
-import 'transaction_list.dart';
-import 'package:flutter/material.dart';
 import 'package:expense_tracker/providers/transactions.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class FavoriteTransactions extends StatelessWidget {
+import 'stat_card.dart';
+
+class PreviousMonth extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final items = Provider.of<Transactions>(context).getFavorites;
+    final allItems = Provider.of<Transactions>(context)
+        .monthlyItem(DateTime.now().month - 1);
 
-    return items.length != 0
-        ? Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                padding: EdgeInsets.only(left: 20, top: 20),
-                child: Text(
-                  'Favorite Transactions',
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-              ),
-              TransactionList(items),
-            ],
-          )
+    return allItems.length != 0
+        ? StatCard('Previous Month', allItems)
         : Container(
             width: double.infinity,
             padding: EdgeInsets.all(20),
@@ -49,7 +38,7 @@ class FavoriteTransactions extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 15),
                   child: Text(
-                    'You can add a transaction to your favorite list by clicking the hearth icon.',
+                    'For more statistics you can add your previous transactions by selecting the date.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,

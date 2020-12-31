@@ -1,15 +1,13 @@
 import 'package:expense_tracker/helpers/color_helper.dart';
-
-import 'transaction_list.dart';
-import 'package:flutter/material.dart';
 import 'package:expense_tracker/providers/transactions.dart';
+import 'package:expense_tracker/screens/stats/widgets/flat_item.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class FavoriteTransactions extends StatelessWidget {
+class BiggestTransactions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final items = Provider.of<Transactions>(context).getFavorites;
-
+    final items = Provider.of<Transactions>(context).biggestItems;
     return items.length != 0
         ? Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -17,11 +15,14 @@ class FavoriteTransactions extends StatelessWidget {
               Container(
                 padding: EdgeInsets.only(left: 20, top: 20),
                 child: Text(
-                  'Favorite Transactions',
+                  'Biggest Transactions',
                   style: Theme.of(context).textTheme.headline6,
+                  textAlign: TextAlign.start,
                 ),
               ),
-              TransactionList(items),
+              Column(
+                children: items.map((e) => FlatItem(e)).toList(),
+              ),
             ],
           )
         : Container(
@@ -49,7 +50,7 @@ class FavoriteTransactions extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 15),
                   child: Text(
-                    'You can add a transaction to your favorite list by clicking the hearth icon.',
+                    'You can see your all time biggest transactions in this screen.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,

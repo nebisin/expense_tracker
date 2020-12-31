@@ -2,10 +2,11 @@ import 'package:expense_tracker/helpers/color_helper.dart';
 import 'package:expense_tracker/models/transaction.dart';
 import 'package:flutter/material.dart';
 
-class AllTimeStats extends StatelessWidget {
+class StatCard extends StatelessWidget {
+  final String title;
   final List<Transaction> items;
 
-  AllTimeStats(this.items);
+  StatCard(this.title, this.items);
 
   Map<String, dynamic> get getTotals {
     double totalExpense = 0.0;
@@ -28,7 +29,7 @@ class AllTimeStats extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      margin: EdgeInsets.all(20),
       padding: EdgeInsets.symmetric(vertical: 20),
       decoration: BoxDecoration(
         color: Colors.grey[100],
@@ -43,7 +44,7 @@ class AllTimeStats extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(left: 20, bottom: 10),
             child: Text(
-              'Total Transaction',
+              title,
               style: Theme.of(context).textTheme.headline6.copyWith(
                     fontSize: 16,
                     color: Colors.black54,
@@ -109,10 +110,9 @@ class AllTimeStats extends StatelessWidget {
                     Text(
                       "\$${getTotals['expense']}",
                       style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).errorColor
-                      ),
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).errorColor),
                     ),
                   ],
                 ),

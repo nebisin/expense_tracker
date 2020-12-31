@@ -19,6 +19,12 @@ class Transactions with ChangeNotifier {
     }).toList();
   }
 
+  List<Transaction> monthlyItem(int month) {
+    return _items.where((tx) {
+      return tx.date.month == month;
+    }).toList();
+  }
+
   List<Transaction> get latestItems {
     return _items.take(4).toList();
   }
