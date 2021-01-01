@@ -47,7 +47,7 @@ flutter_icons:
   android: true
   ios: true
   image_path: "dev_assets/tracker.png"
-  adaptive_icon_background: "#85BB65"
+  adaptive_icon_background: "#7265BB"
   adaptive_icon_foreground: "dev_assets/tracker-adaptive.png"
 
 # For information on the generic Dart part of this file, see the
