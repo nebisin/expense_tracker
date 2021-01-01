@@ -12,6 +12,40 @@ class FlatItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> _showDeleteDialog() async {
+      return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(
+              'Are you sure?',
+              style: Theme.of(context).textTheme.headline5,
+            ),
+            content: Text('Are you sure to delete this transaction?'),
+            actions: [
+              FlatButton(
+                onPressed: () {
+                  Provider.of<Transactions>(context, listen: false)
+                      .removeItem(item.id);
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  'Delete',
+                  style: TextStyle(color: Theme.of(context).errorColor),
+                ),
+              ),
+              FlatButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text('Cancel'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+
     return Container(
       margin: EdgeInsets.all(20),
       padding: EdgeInsets.all(10),
@@ -82,10 +116,7 @@ class FlatItem extends StatelessWidget {
             child: IconButton(
               color: Theme.of(context).errorColor,
               icon: Icon(Icons.delete),
-              onPressed: () {
-                Provider.of<Transactions>(context, listen: false)
-                    .removeItem(item.id);
-              },
+              onPressed: _showDeleteDialog,
             ),
           ),
           Padding(

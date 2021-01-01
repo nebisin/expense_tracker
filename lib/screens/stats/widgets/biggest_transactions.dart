@@ -7,6 +7,7 @@ import 'package:provider/provider.dart';
 class BiggestTransactions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    
     final items = Provider.of<Transactions>(context).biggestItems;
     return items.length != 0
         ? Column(

@@ -16,21 +16,25 @@ final ThemeData customTheme = ThemeData(
     headline1: TextStyle(
       fontSize: 72.0,
       fontWeight: FontWeight.w700,
+      fontFamily: 'Nunito',
     ),
     headline4: TextStyle(
       color: UIColorHelper.ACCENT_COLOR,
       fontWeight: FontWeight.w700,
       fontSize: 18,
+      fontFamily: 'Nunito',
     ),
     headline5: TextStyle(
       color: UIColorHelper.SECONDARY_TEXT_COLOR,
       fontWeight: FontWeight.w700,
       fontSize: 20,
+      fontFamily: 'Nunito',
     ),
     headline6: TextStyle(
       fontWeight: FontWeight.w700,
       fontSize: 30,
       color: UIColorHelper.LIGHT_TEXT_COLOR,
+      fontFamily: 'Nunito',
     ),
     bodyText2: TextStyle(
       fontSize: 16.0,
