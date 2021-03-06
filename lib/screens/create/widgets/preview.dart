@@ -27,7 +27,7 @@ class Preview extends StatelessWidget {
               bottom: 20,
             ),
             child: Text(
-              '\$${amount == null ? '0' : amount}',
+              '\$$amount',
               style: TextStyle(
                 color: Theme.of(context).accentColor,
                 fontWeight: FontWeight.bold,

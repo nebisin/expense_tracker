@@ -6,12 +6,12 @@ part of 'transaction.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class ActionTypeAdapter extends TypeAdapter<ActionType> {
+class ActionTypeAdapter extends TypeAdapter<ActionType?> {
   @override
   final int typeId = 2;
 
   @override
-  ActionType read(BinaryReader reader) {
+  ActionType? read(BinaryReader reader) {
     switch (reader.readByte()) {
       case 0:
         return ActionType.expense;
@@ -23,8 +23,8 @@ class ActionTypeAdapter extends TypeAdapter<ActionType> {
   }
 
   @override
-  void write(BinaryWriter writer, ActionType obj) {
-    switch (obj) {
+  void write(BinaryWriter writer, ActionType? obj) {
+    switch (obj!) {
       case ActionType.expense:
         writer.writeByte(0);
         break;
@@ -58,11 +58,11 @@ class TransactionAdapter extends TypeAdapter<Transaction> {
     return Transaction(
       id: fields[0] as String,
       type: fields[1] as ActionType,
-      title: fields[2] as String,
+      title: fields[2] as String?,
       amount: fields[3] as double,
       date: fields[4] as DateTime,
-      category: fields[5] as String,
-      isFavorite: fields[6] as bool,
+      category: fields[5] as String?,
+      isFavorite: fields[6] as bool?,
     );
   }
 

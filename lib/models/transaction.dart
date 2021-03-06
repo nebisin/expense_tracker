@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:hive/hive.dart';
 
 part 'transaction.g.dart';
@@ -18,22 +17,22 @@ class Transaction extends HiveObject {
   @HiveField(1)
   final ActionType type;
   @HiveField(2)
-  final String title;
+  final String? title;
   @HiveField(3)
   final double amount;
   @HiveField(4)
   final DateTime date;
   @HiveField(5)
-  final String category;
+  final String? category;
   @HiveField(6)
-  final bool isFavorite;
+  final bool? isFavorite;
 
   Transaction({
-    @required this.id,
-    @required this.type,
+    required this.id,
+    required this.type,
     this.title,
-    @required this.amount,
-    @required this.date,
+    required this.amount,
+    required this.date,
     this.category,
     this.isFavorite = false,
   });

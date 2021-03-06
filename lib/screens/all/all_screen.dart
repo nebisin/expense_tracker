@@ -1,6 +1,6 @@
 import 'package:expense_tracker/providers/transactions.dart';
 import 'package:expense_tracker/screens/all/widgets/all_time_stats.dart';
-import 'package:expense_tracker/services/admob_services.dart';
+// import 'package:expense_tracker/services/admob_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,6 +12,7 @@ class AllScreen extends StatefulWidget {
 }
 
 class _AllScreenState extends State<AllScreen> {
+  /*
   @override
   void initState() {
     AdmobService().showBannerAd();
@@ -23,7 +24,7 @@ class _AllScreenState extends State<AllScreen> {
     AdmobService().hideBannerAd();
     super.dispose();
   }
-
+  */
   @override
   Widget build(BuildContext context) {
     final allItems = Provider.of<Transactions>(context).sortedByDate;

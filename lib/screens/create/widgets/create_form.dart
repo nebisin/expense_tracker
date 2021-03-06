@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class CreateForm extends StatelessWidget {
   const CreateForm({
-    Key key,
-    @required GlobalKey<FormState> formKey,
-    @required TextEditingController amountController,
-    @required TextEditingController titleController,
+    Key? key,
+    required GlobalKey<FormState> formKey,
+    required TextEditingController amountController,
+    required TextEditingController titleController,
   })  : _formKey = formKey,
         _amountController = amountController,
         _titleController = titleController,
@@ -29,11 +29,11 @@ class CreateForm extends StatelessWidget {
               prefixText: '\$',
             ),
             validator: (value) {
-              if (value.isEmpty) {
+              if (value!.isEmpty) {
                 return 'Plase enter an amount for your transaction.';
               }
               if (double.tryParse(value) == null ||
-                  double.tryParse(value) <= 0) {
+                  double.tryParse(value)! <= 0) {
                 return 'Please enter a valid amount.';
               }
               return null;

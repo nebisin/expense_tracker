@@ -74,7 +74,7 @@ class Transactions with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> removeItem(String id) async {
+  Future<void> removeItem(String? id) async {
     final transactionBox = Hive.box<Transaction>('txs');
 
     await transactionBox.delete(id);
@@ -83,7 +83,7 @@ class Transactions with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> updateItem(String id, Transaction item) async {
+  Future<void> updateItem(String? id, Transaction item) async {
     final transactionBox = Hive.box<Transaction>('txs');
 
     await transactionBox.put(id, item);

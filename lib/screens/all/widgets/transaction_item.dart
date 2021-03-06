@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 
 class TransactionItem extends StatelessWidget {
   final Transaction item;
-  final DateTime dateBefore;
+  final DateTime? dateBefore;
 
   TransactionItem(this.item, this.dateBefore);
 
@@ -58,8 +58,8 @@ class TransactionItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              item.title.isNotEmpty
-                  ? item.title
+              item.title!.isNotEmpty
+                  ? item.title!
                   : item.type == ActionType.expense
                       ? 'Expense'
                       : 'Income',
@@ -101,7 +101,7 @@ class TransactionItem extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (dateBefore == null || dateBefore.day != item.date.day)
+        if (dateBefore == null || dateBefore!.day != item.date.day)
           Padding(
             padding: const EdgeInsets.only(
               left: 20,

@@ -49,21 +49,6 @@ class Chart extends StatelessWidget {
     });
   }
 
-  double get maxTransaction {
-    final biggest = groupedTransactionValues.reduce((value, element) {
-      if (value['income'] + value['expense'] >
-          element['income'] + element['expense']) {
-        return value;
-      } else {
-        return element;
-      }
-    });
-
-    final biggestTotal = biggest['income'] + biggest['expense'];
-
-    return biggestTotal;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -83,7 +68,7 @@ class Chart extends StatelessWidget {
           return ChartBox(
             data['expense'],
             data['income'],
-            maxTransaction,
+            totalAmount,
             data['day'],
           );
         }).toList(),

@@ -1,4 +1,4 @@
-import 'package:expense_tracker/services/admob_services.dart';
+// import 'package:expense_tracker/services/admob_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -36,7 +36,7 @@ class _CreateScreenState extends State<CreateScreen> {
   }
 
   void _saveTransaction() async {
-    final isValid = _formKey.currentState.validate();
+    final isValid = _formKey.currentState!.validate();
 
     if (!isValid) {
       return;
@@ -54,7 +54,7 @@ class _CreateScreenState extends State<CreateScreen> {
         .addItem(newTransaction);
     Navigator.of(context).pop();
   }
-
+/*
   @override
   void initState() {
     AdmobService().showBannerAd();
@@ -66,7 +66,7 @@ class _CreateScreenState extends State<CreateScreen> {
     AdmobService().hideBannerAd();
     super.dispose();
   }
-
+*/
   @override
   Widget build(BuildContext context) {
     return Scaffold(

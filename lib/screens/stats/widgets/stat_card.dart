@@ -45,7 +45,7 @@ class StatCard extends StatelessWidget {
             padding: EdgeInsets.only(left: 20, bottom: 10),
             child: Text(
               title,
-              style: Theme.of(context).textTheme.headline6.copyWith(
+              style: Theme.of(context).textTheme.headline6!.copyWith(
                     fontSize: 16,
                     color: Colors.black54,
                   ),

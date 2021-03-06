@@ -2,15 +2,15 @@ import 'package:expense_tracker/screens/dashboard/widgets/ChartBar.dart';
 import 'package:flutter/material.dart';
 
 class ChartBox extends StatelessWidget {
-  final double income;
-  final double expense;
-  final double total;
-  final String day;
+  final double? income;
+  final double? expense;
+  final double? total;
+  final String? day;
 
   ChartBox(this.expense, this.income, this.total, this.day);
 
   double get result {
-    return income - expense;
+    return income! - expense!;
   }
 
   @override
@@ -35,7 +35,7 @@ class ChartBox extends StatelessWidget {
           ),
           ChartBar(expense, income, total),
           Text(
-            day,
+            day!,
             style: TextStyle(
               fontSize: 14,
             ),

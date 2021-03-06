@@ -87,8 +87,8 @@ class FlatItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  item.title.isNotEmpty
-                      ? item.title
+                  item.title!.isNotEmpty
+                      ? item.title!
                       : item.type == ActionType.expense
                           ? 'Expense'
                           : 'Income',
@@ -138,7 +138,7 @@ class FlatItem extends StatelessWidget {
                   amount: item.amount,
                   date: item.date,
                   category: item.category,
-                  isFavorite: !item.isFavorite,
+                  isFavorite: !item.isFavorite!,
                 );
                 Provider.of<Transactions>(context, listen: false)
                     .updateItem(item.id, newItem);
