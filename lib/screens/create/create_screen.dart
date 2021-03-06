@@ -80,7 +80,7 @@ class _CreateScreenState extends State<CreateScreen> {
             children: [
               SelectButtons(_type, _setType),
               DateSelector(_selectedDate, _setDate),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               CreateForm(
                 formKey: _formKey,
                 amountController: _amountController,
@@ -109,13 +109,13 @@ class _CreateScreenState extends State<CreateScreen> {
                 ),
               ),
               */
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Container(
                 alignment: Alignment.centerRight,
-                child: RaisedButton.icon(
+                child: ElevatedButton.icon(
                   onPressed: _saveTransaction,
-                  icon: Icon(Icons.save),
-                  label: Text('Save'),
+                  icon: const Icon(Icons.save),
+                  label: const Text('Save'),
                 ),
               ),
             ],

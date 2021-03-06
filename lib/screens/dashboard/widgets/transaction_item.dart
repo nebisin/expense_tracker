@@ -23,7 +23,7 @@ class TransactionItem extends StatelessWidget {
             ),
             content: Text('Are you sure to delete this transaction?'),
             actions: [
-              FlatButton(
+              TextButton(
                 onPressed: () {
                   Provider.of<Transactions>(context, listen: false)
                       .removeItem(item.id);
@@ -34,7 +34,7 @@ class TransactionItem extends StatelessWidget {
                   style: TextStyle(color: Theme.of(context).errorColor),
                 ),
               ),
-              FlatButton(
+              TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },

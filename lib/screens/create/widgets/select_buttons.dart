@@ -13,25 +13,25 @@ class SelectButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       mainAxisSize: MainAxisSize.min,
       children: [
-        RaisedButton(
+        ElevatedButton(
           onPressed: () => setType(ActionType.income),
           child: Text('Income'),
-          color:
-              type == ActionType.income ? Colors.grey[350] : Colors.grey[300],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.horizontal(
-              left: Radius.circular(20),
+          style: ButtonStyle(
+            backgroundColor: MaterialStateColor.resolveWith(
+              (states) => type == ActionType.income
+                  ? Colors.grey[350]
+                  : Colors.grey[300],
             ),
           ),
         ),
-        RaisedButton(
+        ElevatedButton(
           onPressed: () => setType(ActionType.expense),
           child: Text('Expense'),
-          color:
-              type == ActionType.expense ? Colors.grey[350] : Colors.grey[300],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.horizontal(
-              right: Radius.circular(20),
+          style: ButtonStyle(
+            backgroundColor: MaterialStateColor.resolveWith(
+              (states) => type == ActionType.expense
+                  ? Colors.grey[350]
+                  : Colors.grey[300],
             ),
           ),
         ),

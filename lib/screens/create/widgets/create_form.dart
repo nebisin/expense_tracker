@@ -24,7 +24,7 @@ class CreateForm extends StatelessWidget {
           TextFormField(
             controller: _amountController,
             keyboardType: TextInputType.number,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Amount',
               prefixText: '\$',
             ),
@@ -39,12 +39,11 @@ class CreateForm extends StatelessWidget {
               return null;
             },
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           TextFormField(
             controller: _titleController,
             maxLength: 20,
-            maxLengthEnforced: true,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Description (optinal)',
             ),
           ),
